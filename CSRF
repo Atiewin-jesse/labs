@@ -1,0 +1,16 @@
+#Security: Medium level
+In this level open burpsuite and intercept traffic from the CSRF page of you changing the password
+With that done switch to burpsuite and view the traffic, you will realised that unlike the low level security this has a http-referer attached to the request.
+copy the http-referer  in the original request from burpsuite
+create a sample index.html file( example below) then run it using the cmd: firefox index.html
+
+<html>u
+< script>
+<body>
+<form method='GET' action="http://localhost/DVWA/vulnerabilities/csrf/">
+<input type="hidden" name="password_conf" value="12345" />
+</ body>
+<html>
+
+you will notice the DVWA-CSRF lunch but with an error, intercept the traffic and pasted the http-header then forward the request
+reload the web inteface and you will notice the request has been executed with the password changed to 12345
