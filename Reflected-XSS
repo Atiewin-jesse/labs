@@ -1,0 +1,6 @@
+Security: High level
+In this level of the attack the server simply strips of anything "script" or "SCRIPT" 
+so we can not input javascript code for it to execute
+In that case we can use other forms of them like <img> <a> 
+the payload becomes : <img src/onerror=alert(document.cookie)>
+this payloads executes and fetches the cookie from the page.
