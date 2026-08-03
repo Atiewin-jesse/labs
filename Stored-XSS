@@ -1,0 +1,8 @@
+security: High level DVWA
+Just like the reflected XSS the Stored XSS also strips any javascript payload.
+but here is the cache we can still upload a payload using other forms like the img
+With that we can draft a payload but before that the, the traffic is intercepted with burpsuite 
+then modify the message to a payload like this : <a onclick="alert(document.cookie)"> 
+still when execute nothing happens
+so we obfuscate the code usinf burp url-encoder then forward the traffic
+whem the victim visits the attackr message and clicks it, the payload executes fectching the victims session cookie
