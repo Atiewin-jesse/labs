@@ -1,0 +1,7 @@
+Security: High level
+The DOM-XSS lower levels allowed an attacker to add a language to the drop bar
+But this level strictly forbids it meaning we can't add a script to execute the DOM_XSS vulnerability 
+when we try the server fragments the payload part thus igonring the script hence it is not executed
+Using burpsuite to intercept the traffic you will send the request made is fragmented by the server
+hence our only option is to introduce a hash(#) before the defaul=English<script>alert('Hi')</script>
+this will cause the server to execute the payload. futher explaination is provided in the image.
